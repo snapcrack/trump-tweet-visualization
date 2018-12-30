@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+body {
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.title {
+  font-weight: 500;
+  line-height: 18px;
+  font-size: 18px;
+  font-family: 'Ubuntu Mono', monospace;
+}
+.layout-toggler {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  transition: all 0.3s ease 0s;
+}
+.layout-toggler.active {
+  background-color: #2ebe60 !important;
+}
+.chart-container {
+  min-height: 400px;
+}
+.awesomplete mark {
+  padding: .4rem 0px !important;
+}

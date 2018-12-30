@@ -1,0 +1,11 @@
+
+.time-line {
+  stroke: #2C3E50;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+.day {
+  border-bottom: 1px solid #2C3E50;
+  margin-bottom: 8px;
+}
+

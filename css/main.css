@@ -1,0 +1,50 @@
+.node circle {
+    stroke-width: 3px;
+  }
+  
+.node text {
+  fill: #2C3E50;
+  font-family: sans-serif;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.link {
+  fill: none;
+  stroke: #2C3E50;
+  stroke-width: 1.5px;
+  opacity: 0.2;
+}
+
+g.marker circle {
+  fill-opacity: 0;
+  pointer-events: none;
+}
+circle.node:focus {
+  outline: none;
+}
+g.marker polygon {
+  fill-opacity: 0;
+  pointer-events: none;
+}
+g.marker {
+  pointer-events: none;
+}
+
+.bold {
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+.no-bold {
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 500;
+}
+
+.awesomplete > input {
+  width: 100% !important;
+}
+
+.timeline-tooltip {
+  font-family: sans-serif;
+}

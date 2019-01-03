@@ -12,9 +12,10 @@ function initBigram (mode, _container) {
     .svgHeight(500);
 
   // load data from google sheets
-  loadSheet(sheetUrl)
+  // loadSheet(sheetUrl)
+  d3.csv('./data/bigram_month.csv')
     .then((response) => {
-      chart.data(response['bigram_df'].elements)
+      chart.data(response)
         .run()
       // remove loader
       d3.selectAll('.loader').remove();

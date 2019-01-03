@@ -11,10 +11,14 @@ function initHashtagsMonth (_container) {
     .svgHeight(400)
 
   // loading data from google sheets
-  loadSheet(sheetUrl)
+  // loadSheet(sheetUrl)
+  d3.csv('./data/hashtag_df.csv')
     .then(response => {
+      // var data = {
+      //   hashtags: response['hashtag_df'].elements
+      // };
       var data = {
-        hashtags: response['hashtag_df'].elements
+        hashtags: response
       };
       containerDomNode.innerHTML = '';
       chart.data(data).render();

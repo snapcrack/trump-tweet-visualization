@@ -11,10 +11,14 @@ function initMentionsMonth (_container) {
       .svgHeight(400)
   
     // loading data from google sheets
-    loadSheet(sheetUrl)
+    // loadSheet(sheetUrl)
+    d3.csv('./data/mention_df.csv')
       .then(response => {
+        // var data = {
+        //   mentions: response['mention_df'].elements
+        // };
         var data = {
-          mentions: response['mention_df'].elements
+          mentions: response
         };
         containerDomNode.innerHTML = '';
         chart.data(data).render();

@@ -1,0 +1,7 @@
+<iframe src="https://snapcrack.github.io/bigram_viz/"
+  width="100%" height="500"
+  frameborder="0" allowfullscreen sandbox="allow-scripts">
+  <p> <a href="https://snapcrack.github.io/bigram_viz/">
+  Your browser does not support iframe. Follow link to see the page
+  </a></p>
+</iframe>

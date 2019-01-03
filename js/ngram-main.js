@@ -56,6 +56,8 @@ function initPhrasesAll (container) {
     function search (keyword) {
         if (!data) return;
 
+        searchInput.value = keyword;
+
         let ngrams = data.filter(x => x.tag === keyword);
 
         if (ngrams.length) {

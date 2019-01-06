@@ -115,7 +115,7 @@ function Tree() {
                 d3.select(this)
                     .selectAll('circle')
                     .transition()
-                    .duration(300)
+                    .duration(100)
                     .attr('fill', '#dae0e5')
             })
             .on('mouseout', function (d) {
@@ -124,7 +124,7 @@ function Tree() {
                 d3.select(this)
                     .selectAll('circle')
                     .transition()
-                    .duration(300)
+                    .duration(100)
                     .attr('fill', '#f8f9fa')
             });
 

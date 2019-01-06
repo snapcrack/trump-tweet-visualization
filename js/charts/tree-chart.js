@@ -309,8 +309,10 @@ function Tree() {
 
                 d3.select(this).select('circle.node-circle')
                     .attr('fill', '#2ebe60');
-
-                attrs.onChartSelect(d);
+                
+                setTimeout(() => {
+                    attrs.onChartSelect(d);
+                }, 0);
             }
         }
     }

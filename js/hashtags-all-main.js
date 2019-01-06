@@ -11,7 +11,7 @@ function initHashtagsAll (container) {
         data = response;
         chart.innerHTML = ''
 
-        search('CHICAGO');
+        // search('CHICAGO');
         
         let options = data
             .map(x => x.tag)

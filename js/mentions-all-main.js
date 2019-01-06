@@ -11,7 +11,7 @@ function initMentionsAll (container) {
         data = response;
         chart.innerHTML = ''
 
-        search('HISTORY');
+        // search('HISTORY');
         
         let options = data
             .map(x => x.tag)

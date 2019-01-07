@@ -22,7 +22,7 @@ function Scatterplot() {
     //Main chart object
     var main = function () {
       if (attrs.svgWidth <= 0) {
-        attrs.svgWidth = d3.select('.container').node().getBoundingClientRect().width - 30;
+        attrs.svgWidth = d3.select('.container-fluid').node().getBoundingClientRect().width - 30;
       }
       //Calculated properties
       var calc = {}

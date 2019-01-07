@@ -36,6 +36,18 @@ g.marker {
   font-family: sans-serif;
 }
 
+.font-small {
+  font-size: 9px;
+}
+
+.small-margin {
+  padding-left: 5px;
+}
+
+.text-black {
+  color: #2C3E50 !important;
+}
+
 .no-bold {
   font-family: 'Ubuntu Mono', monospace;
   font-weight: 500;

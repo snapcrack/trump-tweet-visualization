@@ -61,6 +61,12 @@ function Force(params) {
       calc.sentimentExtent = d3.extent(attrs.data, d => +d.sentiment);
       calc.circlePackRadius = Math.min(calc.chartWidth / 2, calc.chartHeight / 2) / 2;
 
+      d3.select('#phrases_month .legend-cicle-label-min')
+        .text(calc.countExtent[0])
+      
+      d3.select('#phrases_month .legend-cicle-label-max')
+        .text(calc.countExtent[1])
+
       var disableMarkerMove = attrs.currentMode !== 'initial';
 
       // create color gradient.

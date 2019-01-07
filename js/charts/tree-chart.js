@@ -266,7 +266,7 @@ function Tree() {
                         svg
                             .transition()
                             .duration(duration)
-                            .attr('height', 420)
+                            .attr('height', 380)
                     }
 
                     let third = nodeUpdate.datum().descendants().filter(x => x.data.id === 3);

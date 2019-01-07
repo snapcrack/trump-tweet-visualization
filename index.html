@@ -32,14 +32,45 @@
             <div class="col-12">
                 <input class="search-input awesomplete" placeholder="Search phrases"/>
             </div>
-            <div class="col-sm-8 col-md-6 ml-3 totals text-left">
+            <div class="col-sm-8 col-md-6 totals text-left">
                 <div class="d-flex justify-content-between">
                     <span>Total occurrences:</span> 
                     <span class="ml-4 total-count"></span>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <span>Average number of retweets: </span> 
+                    <span>Total retweets: </span> 
                     <span class="total-retweets"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 legend-container">
+                <div class="legend float-md-right float-sm-left">
+                    <div class="d-flex">
+                        <div class="circle-legend">
+                            <div class="legend-text circle-legend-text text-right">
+                                Retweets
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="text-right pr-1 legend-cicle-labels">
+                                    <div class="legend-cicle-label legend-cicle-label-max">0</div>
+                                    <div class="legend-cicle-label legend-cicle-label-min">0</div>
+                                </div>
+                                <div class="position-relative">
+                                    <div class="legend-circle1"></div>
+                                    <div class="legend-circle2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-1">
+                            <div class="legend-text mb-1">
+                                Sentiment scores
+                            </div>
+                            <div class="d-flex">
+                                <div class="legend-text p-1">-1</div> 
+                                <div class="legend-rect"></div>
+                                <div class="legend-text p-1">1</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 chart-container" id="phrases_all_chart">
@@ -53,6 +84,37 @@
         </div>
         <!--phrases month-->
         <div class="row mt-1 d-none js-chart-row" id="phrases_month">
+            <div class="col-sm-12 legend-container d-block">
+                <div class="legend float-md-right float-sm-left">
+                    <div class="d-flex">
+                        <div class="circle-legend">
+                            <div class="legend-text circle-legend-text text-right">
+                                Retweets
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="text-right pr-1 legend-cicle-labels">
+                                    <div class="legend-cicle-label legend-cicle-label-max">0</div>
+                                    <div class="legend-cicle-label legend-cicle-label-min">0</div>
+                                </div>
+                                <div class="position-relative">
+                                        <div class="legend-circle1"></div>
+                                        <div class="legend-circle2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-1">
+                            <div class="legend-text mb-1">
+                                Sentiment scores
+                            </div>
+                            <div class="d-flex">
+                                <div class="legend-text p-1">-1</div> 
+                                <div class="legend-rect"></div>
+                                <div class="legend-text p-1">1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 chart-container" id="phrases_month_chart">
                 <div class="loader">
                     <span class="dot dot_1"></span>
@@ -67,14 +129,45 @@
             <div class="col-12">
                 <input class="search-input awesomplete" placeholder="Search hashtags"/>
             </div>
-            <div class="col-sm-8 col-md-6 ml-3 totals text-left">
+            <div class="col-sm-8 col-md-6 totals text-left">
                 <div class="d-flex justify-content-between">
                     <span>Total occurrences:</span> 
                     <span class="ml-4 total-count"></span>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <span>Average number of retweets: </span> 
+                    <span>Total retweets: </span> 
                     <span class="total-retweets"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 legend-container">
+                <div class="legend float-md-right float-sm-left">
+                    <div class="d-flex">
+                        <div class="circle-legend">
+                            <div class="legend-text circle-legend-text text-right">
+                                Retweets
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="text-right pr-1 legend-cicle-labels">
+                                    <div class="legend-cicle-label legend-cicle-label-max">0</div>
+                                    <div class="legend-cicle-label legend-cicle-label-min">0</div>
+                                </div>
+                                <div class="position-relative">
+                                        <div class="legend-circle1"></div>
+                                        <div class="legend-circle2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-1">
+                            <div class="legend-text mb-1">
+                                Sentiment scores
+                            </div>
+                            <div class="d-flex">
+                                <div class="legend-text p-1">-1</div> 
+                                <div class="legend-rect"></div>
+                                <div class="legend-text p-1">1</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 chart-container" id="hashtags_all_chart">
@@ -88,6 +181,18 @@
         </div>
         <!--hashtags month-->
         <div class="row mt-1 d-none js-chart-row" id="hashtags_month">
+            <div class="col-sm-12 legend-container d-block">
+                <div class="legend float-md-right float-sm-left">
+                    <div class="legend-text">
+                        Sentiment scores
+                    </div>
+                    <div class="d-flex">
+                        <div class="legend-text p-1">-1</div> 
+                        <div class="legend-rect"></div>
+                        <div class="legend-text p-1">1</div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 chart-container" id="hashtags_month_chart">
                 <div class="loader">
                     <span class="dot dot_1"></span>
@@ -102,14 +207,45 @@
             <div class="col-12">
                 <input class="search-input awesomplete" placeholder="Search mentions"/>
             </div>
-            <div class="col-sm-8 col-md-6 ml-3 totals text-left">
+            <div class="col-sm-8 col-md-6 totals text-left">
                 <div class="d-flex justify-content-between">
                     <span>Total occurrences:</span> 
                     <span class="ml-4 total-count"></span>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <span>Average number of retweets: </span> 
+                    <span>Total retweets: </span> 
                     <span class="total-retweets"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 legend-container">
+                <div class="legend float-md-right float-sm-left">
+                    <div class="d-flex">
+                        <div class="circle-legend">
+                            <div class="legend-text circle-legend-text text-right">
+                                Retweets
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="text-right pr-1 legend-cicle-labels">
+                                    <div class="legend-cicle-label legend-cicle-label-max">0</div>
+                                    <div class="legend-cicle-label legend-cicle-label-min">0</div>
+                                </div>
+                                <div class="position-relative">
+                                        <div class="legend-circle1"></div>
+                                        <div class="legend-circle2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-1">
+                            <div class="legend-text mb-1">
+                                Sentiment scores
+                            </div>
+                            <div class="d-flex">
+                                <div class="legend-text p-1">-1</div> 
+                                <div class="legend-rect"></div>
+                                <div class="legend-text p-1">1</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 chart-container" id="mentions_all_chart">
@@ -123,6 +259,18 @@
         </div>
         <!--mentions month-->
         <div class="row mt-1 d-none js-chart-row" id="mentions_month">
+            <div class="col-sm-12 legend-container d-block">
+                <div class="legend float-md-right float-sm-left">
+                    <div class="legend-text">
+                        Sentiment scores
+                    </div>
+                    <div class="d-flex">
+                        <div class="legend-text p-1">-1</div> 
+                        <div class="legend-rect"></div>
+                        <div class="legend-text p-1">1</div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 chart-container" id="mentions_month_chart">
                 <div class="loader">
                     <span class="dot dot_1"></span>

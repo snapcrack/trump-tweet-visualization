@@ -132,7 +132,15 @@ function Timeline() {
         ${d.values
           .sort((a, b) => +a.sentiment - (+b.sentiment))
           .map(x => `<div class="text-left" style="color: ${scaleColor(colorRangeIndividual(+x.sentiment))}">
-                ${x.tag}
+                ${x.tag} 
+                <span class="font-small text-black">
+                  <span class="bold small-margin">Retweets:</span>
+                  <span class="no-bold">${x.retweets}</span>
+                  <span class="bold small-margin">Sentiment:</span>
+                  <span class="no-bold">${Number.parseFloat(x.sentiment).toFixed(2)}</span>
+                  <span class="bold small-margin">Favorites:</span>
+                  <span class="no-bold">${Number.parseFloat(x.likes).toFixed(2)}</span>
+                </span>
               </div>`)
           .join('')}
         `;

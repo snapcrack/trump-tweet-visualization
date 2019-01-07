@@ -22,7 +22,7 @@ function Scatterplot() {
     //Main chart object
     var main = function () {
       if (attrs.svgWidth <= 0) {
-        attrs.svgWidth = d3.select('.container').node().getBoundingClientRect().width - 30;
+        attrs.svgWidth = d3.select('.container-fluid').node().getBoundingClientRect().width - 30;
       }
       //Calculated properties
       var calc = {}
@@ -82,7 +82,12 @@ function Scatterplot() {
         .classed('axis', true)
         .transition()
         .duration(transition ? attrs.animationTime : 0)
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll("text")	
+          .style("text-anchor", "end")
+          .attr("dx", "-.8em")
+          .attr("dy", ".15em")
+          .attr("transform", "rotate(-45)");
 
       var yAxisLayer = chart.patternify({ tag: 'g', selector: 'y-axis' })
         .attr('transform', 'translate(-15)')
@@ -99,7 +104,7 @@ function Scatterplot() {
         .attr('cx', d => xScale(new Date(d.year, d.month - 1, 15)))
         .attr('fill', d => scaleColor(d.sentiment));
       
-      // attach tooltip to all rectangles
+      // attach tooltip to all circles
       points
       .each(function(d) {
         let node = this;
@@ -115,7 +120,6 @@ function Scatterplot() {
           duration: 200
         })
       })
-
 
       handleWindowResize();
       

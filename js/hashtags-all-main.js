@@ -43,6 +43,14 @@ function initHashtagsAll (container) {
         rootContainer.querySelector('.total-retweets').innerHTML = totalRetweets.toFixed(2)
         rootContainer.querySelector('.totals').style.display = 'initial';
         rootContainer.querySelector('.legend-container').style.display = 'initial';
+
+        if (data.length == 1) {
+            rootContainer.querySelector('.legend-cicle-label-min').style.display = 'none';
+            rootContainer.querySelector('.legend-circle2').style.display = 'none';
+        } else {
+            rootContainer.querySelector('.legend-cicle-label-min').style.display = 'block';
+            rootContainer.querySelector('.legend-circle2').style.display = 'block';
+        }
     }
 
     function autoComplete (options) {

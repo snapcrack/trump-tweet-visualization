@@ -15,6 +15,8 @@ function Tree() {
       defaultFont: 'Helvetica',
       data: null
     };
+
+    var isFirstLoaded = true;
   
     //Main chart object
     var main = function () {
@@ -110,7 +112,7 @@ function Tree() {
             })
             .on('click', click)
             .on('mouseover', function (d) {
-                if (d.clicked || isMobile.any()) return;
+                if (d.clicked || isMobile.any() || isFirstLoaded) return;
 
                 d3.select(this)
                     .selectAll('circle')
@@ -119,7 +121,7 @@ function Tree() {
                     .attr('fill', '#dae0e5')
             })
             .on('mouseout', function (d) {
-                if (d.clicked  || isMobile.any()) return;
+                if (d.clicked  || isMobile.any() || isFirstLoaded) return;
 
                 d3.select(this)
                     .selectAll('circle')
@@ -132,7 +134,7 @@ function Tree() {
         nodeEnter.append('circle')
             .attr('class', 'node-circle')
             .attr('r', d => radius(d))
-            .attr("fill", d => d.clicked ? '#2ebe60' : '#f8f9fa');
+            .attr("fill", d => (d.clicked || isFirstLoaded) ? '#2ebe60' : '#f8f9fa');
 
         // Add labels for the nodes
         var texts = nodeEnter.append('text')
@@ -162,7 +164,7 @@ function Tree() {
         // Update the node attributes and style
         nodeUpdate.select('circle.node-circle')
             .attr('r', d => radius(d))
-            .attr("fill", d => d.clicked ? '#2ebe60' : '#f8f9fa')
+            .attr("fill", d => (d.clicked || isFirstLoaded) ? '#2ebe60' : '#f8f9fa')
             .attr('cursor', 'pointer');
 
         // Remove any exiting nodes
@@ -232,6 +234,7 @@ function Tree() {
         // Toggle children on click.
         function click(d) {
             var shouldWait = false;
+            isFirstLoaded = false;
 
             if (d.children || d._children) {
                 svg
@@ -372,7 +375,6 @@ function Tree() {
           attrs.svgWidth = containerRect.width;
         //if (containerRect.height > 0)  attrs.svgHeight = containerRect.height;
       }
-  
     };
   
     //----------- PROTOTYPE FUNCTIONS  ----------------------

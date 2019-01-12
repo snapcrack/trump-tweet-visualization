@@ -72,7 +72,7 @@
                 enlargeScreen: true,
                 children: [
                   {
-                    name: 'Timeline',
+                    name: 'Sort by day',
                     initFunction: initHashtagsMonth,
                     isTimeline: true,
                     container: 'hashtags_month',
@@ -111,7 +111,7 @@
                 enlargeScreen: true,
                 children: [
                   {
-                    name: 'Timeline',
+                    name: 'Sort by day',
                     initFunction: initMentionsMonth,
                     isTimeline: true,
                     container: 'mentions_month',

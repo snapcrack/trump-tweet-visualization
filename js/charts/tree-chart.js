@@ -58,7 +58,6 @@ function Tree() {
 
         var allNodes = treemap(root).descendants();
         
-
         // Collapse after the second level
         root.children.forEach(collapse);
 
@@ -243,7 +242,7 @@ function Tree() {
                     svg
                         .transition()
                         .duration(duration)
-                        .attr('height', attrs.svgHeight)
+                        .attr('height', attrs.svgHeight);
 
                     // collapse
                     if (d.children) {
@@ -304,8 +303,17 @@ function Tree() {
                             collapse(third[0])
                             update(d);
                         }, 100);
-                        
+
                         shouldWait = true;
+                    }
+
+                    if (d.depth == 2) {
+                        setTimeout(() => {
+                            svg
+                                .transition()
+                                .duration(duration)
+                                .attr('height', attrs.svgHeight);
+                        }, 100);
                     }
 
                     nodeUpdate.each(function(x) {

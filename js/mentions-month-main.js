@@ -1,10 +1,11 @@
-function initMentionsMonth (_container) {
+function initMentionsMonth (mode, _container) {
     var sheetUrl = 'https://docs.google.com/spreadsheets/d/1nPbLjwKqtlkxWCvPiS9ijE23Go9B9a0qkycQfKnF984/edit';
     var container = '#' + _container + '_chart';
     var containerDomNode = document.getElementById(container.slice(1));
     var boundingRect = containerDomNode.getBoundingClientRect();
   
     var chart = Timeline()
+      .currentMode(mode)
       .container(container)
       .svgWidth(boundingRect.width - 30)
       .mode('mentions')

@@ -15,11 +15,14 @@ function Timeline() {
     colors: ['#e60000','#9b0000','#001c9b','#134df5'],
     defaultTextFill: '#2C3E50',
     defaultFont: 'sans-serif',
+    currentMode: 'initial',
     data: null
   };
 
   //InnerFunctions which will update visuals
   var updateData;
+  // order nodes descending or ascending
+  var orderNodes;
   var transition = true;
 
   //Main chart object
@@ -36,11 +39,43 @@ function Timeline() {
     var days = d3.nest()
       .key(d => d.day)
       .entries(attrs.data[attrs.mode])
+      .map(d => {
+        return {
+          key: d.key,
+          values: d.values,
+          count: d.values.length,
+          sentimentMean: d3.mean(d.values.map(d => +d.sentiment))
+        }
+      })
 
     var xScale = d3.scaleBand()
       .paddingOuter(0.5)
       .range([0, calc.chartWidth])
       .domain(days.map(d => d.key))
+
+    var xScaleCount = d3.scaleBand()
+      .paddingOuter(0.5)
+      .range([0, calc.chartWidth])
+      .domain(days.slice().map(d => {
+        var len = d.values.filter(d => d.tag && d.tag.length).length;
+        if (len === 0) {
+          d.count = -1;
+        }
+        return d;
+      })
+      .sort((a, b) => b.count - a.count).map(d => d.key))
+
+    var xScaleSentiment = d3.scaleBand()
+      .paddingOuter(0.5)
+      .range([0, calc.chartWidth])
+      .domain(days.slice().map(d => {
+        var len = d.values.filter(d => d.tag && d.tag.length).length;
+        if (len === 0) {
+          d.sentimentMean = -1;
+        }
+        return d;
+      })
+      .sort((a, b) => b.sentimentMean - a.sentimentMean).map(d => d.key))
 
     var yScale = d3.scaleLinear()
       .domain(d3.extent(days, d => d.values.length))
@@ -50,7 +85,7 @@ function Timeline() {
 
     // just scale average sentiment on a day to [0, 1]
     var colorRange = d3.scaleLinear()
-      .domain(d3.extent(days, d => d3.mean(d.values.map(d => +d.sentiment))))
+      .domain(d3.extent(days, d => d.sentimentMean))
       .range([0, 1])
 
     var colorRangeIndividual = d3.scaleLinear()
@@ -75,10 +110,12 @@ function Timeline() {
       .attr('x2', calc.chartWidth)
       .attr('y1', calc.chartHeight / 2)
       .attr('y2', calc.chartHeight / 2)
+    
+    var properxScale = getProperXScale();
 
     var rectangles = chart.patternify({ tag: 'rect', selector: 'day-rect', data: days })
-      .attr('x', d => xScale(d.key))
-      .attr('width', xScale.bandwidth())
+      .attr('x', d => properxScale(d.key))
+      .attr('width', properxScale.bandwidth())
       .attr('rx', 5)
       .attr('ry', 5)
       .attr('y', d => calc.chartHeight / 2)
@@ -87,12 +124,7 @@ function Timeline() {
       .duration(transition ? attrs.transitionDuration * days.length : 0)
       .delay((d, i) => transition ? i * attrs.transitionDuration : 0)
       .ease(d3.easeElastic)
-      .attr('fill', d => scaleColor(
-          colorRange(
-            d3.mean(d.values.map(d => +d.sentiment))
-            )
-          )
-      )
+      .attr('fill', d => scaleColor(colorRange(d.sentimentMean)))
       .attr('height', d => {
         var count = d.values.filter(d => d.tag && d.tag.length).length;
         if (count > 0) {
@@ -104,7 +136,8 @@ function Timeline() {
       .attr('y', d => calc.chartHeight / 2 - yScale(d.values.length) / 2)
 
     // attach tooltip to all rectangles
-    d3.selectAll('rect.day-rect')
+    container
+    .selectAll('rect.day-rect')
     .each(function(d) {
       let node = this;
       let tip = node._tippy;
@@ -120,7 +153,27 @@ function Timeline() {
       })
     })
 
+    orderNodes = function (mode) {
+      attrs.currentMode = mode;
+
+      container
+        .selectAll('rect.day-rect')
+          .transition()
+          .duration(750)
+          .attr('x', d => getProperXScale()(d.key))
+    };
+
     handleWindowResize();
+
+    function getProperXScale () {
+      if (attrs.currentMode === 'initial') {
+        return xScale;
+      } else if (attrs.currentMode === 'count') {
+        return xScaleCount;
+      } else {
+        return xScaleSentiment;
+      }
+    }
 
     function getTooltipHtml(d) {
       var html = document.createElement('div')
@@ -228,6 +281,13 @@ function Timeline() {
       transition = true;
       main();
       transition = false;
+    }
+    return main;
+  }
+
+  main.orderNodes = function (sortOrder) {
+    if (typeof orderNodes === 'function') {
+      orderNodes(sortOrder);
     }
     return main;
   }

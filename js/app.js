@@ -68,9 +68,31 @@
               },
               { 
                 name: month,
-                container: 'hashtags_month',
-                initFunction: initHashtagsMonth,
-                isTimeline: true
+                id: 11,
+                enlargeScreen: true,
+                children: [
+                  {
+                    name: 'Timeline',
+                    initFunction: initHashtagsMonth,
+                    isTimeline: true,
+                    container: 'hashtags_month',
+                    mode: 'initial'
+                  },
+                  {
+                    name: 'Sort by count',
+                    container: 'hashtags_month',
+                    initFunction: initHashtagsMonth,
+                    isTimeline: true,
+                    mode: 'count'
+                  },
+                  {
+                    name: 'Sort by sentiment',
+                    container: 'hashtags_month',
+                    initFunction: initHashtagsMonth,
+                    isTimeline: true,
+                    mode: 'sentiment'
+                  }
+                ]
               }
             ]
           },
@@ -85,9 +107,31 @@
               },
               { 
                 name: month,
-                container: 'mentions_month',
-                initFunction: initMentionsMonth,
-                isTimeline: true
+                id: 12,
+                enlargeScreen: true,
+                children: [
+                  {
+                    name: 'Timeline',
+                    initFunction: initMentionsMonth,
+                    isTimeline: true,
+                    container: 'mentions_month',
+                    mode: 'initial'
+                  },
+                  {
+                    name: 'Sort by count',
+                    container: 'mentions_month',
+                    initFunction: initMentionsMonth,
+                    isTimeline: true,
+                    mode: 'count'
+                  },
+                  {
+                    name: 'Sort by sentiment',
+                    container: 'mentions_month',
+                    initFunction: initMentionsMonth,
+                    isTimeline: true,
+                    mode: 'sentiment'
+                  }
+                ]
               }
             ]
           }
@@ -108,18 +152,23 @@
   
             // if chart exists, then we should just show it
             if (chart) {
-              if (node.data.isForce) {
+              if (node.data.isForce || node.data.isTimeline) {
                 chart.orderNodes(node.data.mode);
-              } else if (node.data.isTimeline) {
-                chart.animate(true).render();
-              }
+              } 
+              // else if (node.data.isTimeline) {
+              //   chart.animate(true).render();
+              // }
             } 
             // if chart does not exist, we need to initialize it
             else {
               if (node.data.isForce) {
                 initBigram(node.data.mode, node.data.container);
               } else {
-                node.data.initFunction(node.data.container);
+                if (node.data.isTimeline) {
+                  node.data.initFunction(node.data.mode, node.data.container);
+                } else {
+                  node.data.initFunction(node.data.container);
+                }
               }
             }
           })

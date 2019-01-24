@@ -6,7 +6,7 @@ function initPhrasesAll (container) {
 
     let data = null;
     
-    d3.csv('./data/ngram_df_flattened.csv')
+    d3.csv('./data/ngram_df_all_flattened.csv')
      .then(response => {
         data = response;
         chart.innerHTML = ''

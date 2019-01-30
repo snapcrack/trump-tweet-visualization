@@ -13,7 +13,7 @@ function initBigram (mode, _container) {
 
   // load data from google sheets
   // loadSheet(sheetUrl)
-  d3.csv('./data/bigram_month.csv')
+  d3.csv('https://dl.dropboxusercontent.com/s/m2l4nrafe5joeaj/bigram_month.csv?dl=1')
     .then((response) => {
       chart.data(response)
         .run()

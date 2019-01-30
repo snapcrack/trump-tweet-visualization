@@ -6,7 +6,7 @@ function initMentionsAll (container) {
 
     let data = null;
     
-    d3.csv('./data/mentions_all_output.csv')
+    d3.csv('https://dl.dropboxusercontent.com/s/evcn5bxcuxnxwdg/mention_df_flattened.csv?dl=1')
      .then(response => {
         data = response;
         chart.innerHTML = ''

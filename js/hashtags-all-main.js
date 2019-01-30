@@ -6,7 +6,7 @@ function initHashtagsAll (container) {
 
     let data = null;
     
-    d3.csv('./data/hashtag_df_all.csv')
+    d3.csv('https://dl.dropboxusercontent.com/s/cvzl1cw98pefwpc/hashtag_df_flattened.csv?dl=1')
      .then(response => {
         data = response;
         chart.innerHTML = ''

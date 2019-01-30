@@ -1,5 +1,4 @@
 function initMentionsMonth (mode, _container) {
-    var sheetUrl = 'https://docs.google.com/spreadsheets/d/1nPbLjwKqtlkxWCvPiS9ijE23Go9B9a0qkycQfKnF984/edit';
     var container = '#' + _container + '_chart';
     var containerDomNode = document.getElementById(container.slice(1));
     var boundingRect = containerDomNode.getBoundingClientRect();
@@ -13,7 +12,7 @@ function initMentionsMonth (mode, _container) {
   
     // loading data from google sheets
     // loadSheet(sheetUrl)
-    d3.csv('https://dl.dropboxusercontent.com/s/1iilit946sk91uc/mention_df.csv?dl=1')
+    d3.csv('https://dl.dropboxusercontent.com/s/1lzh6g99u18y4m5/mention_df.csv?dl=1')
       .then(response => {
         // var data = {
         //   mentions: response['mention_df'].elements

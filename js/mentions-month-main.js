@@ -13,7 +13,7 @@ function initMentionsMonth (mode, _container) {
   
     // loading data from google sheets
     // loadSheet(sheetUrl)
-    d3.csv('./data/mention_df.csv')
+    d3.csv('https://www.dropbox.com/s/1iilit946sk91uc/mention_df.csv?dl=1')
       .then(response => {
         // var data = {
         //   mentions: response['mention_df'].elements

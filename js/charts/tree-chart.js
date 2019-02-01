@@ -271,7 +271,7 @@ function Tree() {
                             svg
                                 .transition()
                                 .duration(duration)
-                                .attr('height', 380)
+                                .attr('height', 300)
                         }
 
                         let third = allNodes.filter(x => x.data.id === getThirdLevelId());

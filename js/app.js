@@ -2,7 +2,7 @@
     var container = document.getElementById('tree-chart');
     var forceChart = document.getElementById('chart');
 
-    var height = 290;
+    var height = 200;
 
     // load as of data from text file
     d3.text('https://dl.dropboxusercontent.com/s/943b3jdmwclphuk/as_of_date.txt?dl=1')

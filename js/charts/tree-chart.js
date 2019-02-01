@@ -96,7 +96,7 @@ function Tree() {
 
             // Normalize for fixed-depth.
             nodes.forEach(function(d) {
-                d.y = (d.depth - 1) * 160 - (d.depth == 3 ? 50 : 0);
+                d.y = (d.depth - 1) * 90;
             });
 
             // ****************** Nodes section ***************************

@@ -74,7 +74,7 @@ function initHashtagsAll (container) {
         let ngrams = data.filter(x => x.tag === keyword);
 
         if (ngrams.length) {
-            let unflattened = unflatten(ngrams);
+            let unflattened = unflatten_2(ngrams);
             addTotals(unflattened);
             initChart(unflattened);
         }

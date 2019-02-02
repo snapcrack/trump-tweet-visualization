@@ -40,7 +40,7 @@ function initHashtagsAll (container) {
         rootContainer.querySelector('.total-count').innerHTML = totalCount;
         rootContainer.querySelector('.legend-cicle-label-min').innerHTML = minRetweets;
         rootContainer.querySelector('.legend-cicle-label-max').innerHTML = maxRetweets;
-        rootContainer.querySelector('.total-retweets').innerHTML = totalRetweets.toFixed(2)
+        rootContainer.querySelector('.total-retweets').innerHTML = totalRetweets.toFixed(2);
         rootContainer.querySelector('.totals').style.display = 'initial';
         rootContainer.querySelector('.legend-container').style.display = 'initial';
 
@@ -74,7 +74,7 @@ function initHashtagsAll (container) {
         let ngrams = data.filter(x => x.tag === keyword);
 
         if (ngrams.length) {
-            let unflattened = unflatten_2(ngrams);
+            let unflattened = unflatten_2(ngrams[0]);
             addTotals(unflattened);
             initChart(unflattened);
         }

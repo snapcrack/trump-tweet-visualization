@@ -7,11 +7,11 @@
     // load as of data from text file
     d3.text('https://dl.dropboxusercontent.com/s/943b3jdmwclphuk/as_of_date.txt?dl=1')
     .then(res => {
-      var momentDate = moment(res).format('MMMM Do, YYYY');
+      var momentDate = moment(res).format('MMMM D, YYYY, h:mm A');
       var momentMonth = moment(res).format('MMMM');
 
       d3.select('#title')
-        .text(`Trump's Tweets as of ${momentDate}`);
+        .text(`Trump's Tweets as of ${momentDate} EST`);
 
       init(momentMonth);
     })

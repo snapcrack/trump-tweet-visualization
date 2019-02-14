@@ -61,6 +61,10 @@ function Scatterplot() {
         .domain([calc.minRetweets, calc.maxRetweets])
         .range([5, 15]);
 
+      var colorRange = d3.scaleLinear()
+        .domain([-1, 1])
+        .range([0, 1])
+
       // create color gradient.
       var scaleColor = d3.piecewise(d3.interpolateRgb.gamma(2.2), attrs.nodeColors);
 
@@ -102,7 +106,7 @@ function Scatterplot() {
         .duration(transition ? attrs.animationTime : 0)
         .attr('cy', d => yScale(d.count))
         .attr('cx', d => xScale(new Date(d.year, d.month - 1, 15)))
-        .attr('fill', d => scaleColor(d.sentiment));
+        .attr('fill', d => scaleColor(colorRange(d.sentiment)));
       
       // attach tooltip to all circles
       points

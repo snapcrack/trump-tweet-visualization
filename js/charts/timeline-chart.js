@@ -85,11 +85,11 @@ function Timeline() {
 
     // just scale average sentiment on a day to [0, 1]
     var colorRange = d3.scaleLinear()
-      .domain(d3.extent(days, d => d.sentimentMean))
+      .domain([-1, 1])
       .range([0, 1])
 
     var colorRangeIndividual = d3.scaleLinear()
-      .domain(d3.extent(attrs.data[attrs.mode], d => +d.sentiment))
+      .domain([-1, 1])
       .range([0, 1])
 
     //Drawing containers

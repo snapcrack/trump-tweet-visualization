@@ -73,7 +73,7 @@ function Force(params) {
       var scaleColor = d3.piecewise(d3.interpolateRgb.gamma(2.2), attrs.nodeColors);
       // just scale sentiment to [0, 1]
       var colorRange = d3.scaleLinear()
-        .domain(calc.sentimentExtent)
+        .domain([-1, 1])
         .range([0, 1])
       // computes radius based on count property
       var scaleRadius = d3.scaleLinear()

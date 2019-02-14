@@ -22,7 +22,7 @@
         id: 0,
         children: [
           {
-            name: 'Phrases',
+            name: 'Words',
             id: 1,
             children: [
               { 

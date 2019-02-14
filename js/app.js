@@ -27,7 +27,7 @@
             children: [
               { 
                 name: 'All',
-                container: 'phrases_all',
+                container: 'words_all',
                 initFunction: initPhrasesAll 
               },
               { 
@@ -38,18 +38,18 @@
                   {
                     name: 'Unsort',
                     isForce: true,
-                    container: 'phrases_month',
+                    container: 'words_month',
                     mode: 'initial'
                   },
                   {
                     name: 'Sort by count',
-                    container: 'phrases_month',
+                    container: 'words_month',
                     isForce: true,
                     mode: 'desc'
                   },
                   {
                     name: 'Sort by sentiment',
-                    container: 'phrases_month',
+                    container: 'words_month',
                     isForce: true,
                     mode: 'color'
                   }

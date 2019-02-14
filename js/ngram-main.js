@@ -11,7 +11,7 @@ function initPhrasesAll (container) {
         data = response;
         chart.innerHTML = ''
 
-        // search('we will make');
+        //search('caravan');
         
         let options = data
             .map(x => x.tag)
